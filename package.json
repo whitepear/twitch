@@ -1,0 +1,21 @@
+{
+  "name": "twitch",
+  "version": "1.0.0",
+  "description": "MVC app that makes use of the TwitchTV API.",
+  "main": "src/server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react",
+    "express",
+    "node",
+    "mongodb",
+    "react",
+    "router",
+    "mvc",
+    "javascript"
+  ],
+  "author": "whitepear",
+  "license": "ISC"
+}
