@@ -11,6 +11,7 @@ module.exports = {
 	],
 	output: {
 		path: __dirname + '/src/server/public',
+		publicPath: '/',
 		filename: 'bundle.js'
 	},
 	module: {

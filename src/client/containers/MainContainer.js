@@ -3,7 +3,7 @@ var React = require('react');
 var MainContainer = React.createClass({
 	render: function() {
 		return (
-			<div className="container">
+			<div>
 				{this.props.children}
 			</div>
 		)
