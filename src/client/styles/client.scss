@@ -1,4 +1,35 @@
+@import 'partials/_normalize.scss';
 @import 'partials/_bootstrap.scss';
+@import 'partials/_home.scss';
 
 
+@font-face {
+	font-family: Summer-Hearts;
+	src: url(fonts/SummerHearts-Regular.otf);
+}
 
+@font-face {
+	font-family: Icomoon;
+	src: url(fonts/icomoon.ttf);
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	min-height: 100%;
+	color: #fff;
+	background: #444;
+	font-family: 'Open Sans', sans-serif;
+}
+
+a {
+	text-decoration: none;
+	color: #fff;
+
+	&:hover, &:active, &:focus {
+		text-decoration: none;
+		color: #eee;
+	}
+}
