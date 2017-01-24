@@ -1,0 +1,81 @@
+.home-header-container {
+	font-family: Summer-Hearts;
+	position: relative;
+}
+
+.twitch-header-one {
+	text-align: center;
+	font-size: 70px;
+	margin-top: 15px;
+  transform: rotate(-5.5deg);
+}
+
+.twitch-header-one-capital {
+	font-size: 90px;
+  position: relative;
+  left: 9px;
+}
+
+.twitch-header-two {
+	text-align: center;
+	font-size: 50px;
+	transform: rotate(-5.5deg);
+  position: relative;
+  left: -24px;
+  bottom: 13px;
+}
+
+.twitch-header-two-capital {
+	font-size: 66px;
+}
+
+.twitch-icon {
+  font-family: Icomoon;
+  position: absolute;
+  right: 6px;
+  bottom: -184px;
+  font-size: 155px;
+  transform: rotate(-2deg);
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.home-login-container {
+	margin-top: 54px;
+	overflow: auto;
+}
+
+#homeLoginSubmit {
+  margin-top: 5px;
+  background: linear-gradient(#00DC4A 45%, #00BF41);
+  color: #fff;
+  border: none;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 24px;
+  padding: 5px 10px 8px;
+  float: right;
+  margin-right: 18px;
+  border-radius: 4px;
+}
+
+.home-register-container {
+	margin-top: 64px;
+  text-align: center;
+}
+
+.home-register-message {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.home-register-btn {
+	background: linear-gradient(#FFB400 82%, #C68C00);
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  font-family: 'Open Sans', sans-serif;
+  width: 90%;
+  height: 37px;
+  padding-bottom: 4px;
+  max-width: 330px;
+  border-radius: 500px;
+}
