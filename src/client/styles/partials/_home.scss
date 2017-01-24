@@ -6,7 +6,7 @@
 .twitch-header-one {
 	text-align: center;
 	font-size: 70px;
-	margin-top: 15px;
+	margin-top: 7px;
   transform: rotate(-5.5deg);
 }
 
@@ -33,14 +33,14 @@
   font-family: Icomoon;
   position: absolute;
   right: 6px;
-  bottom: -184px;
+  bottom: -169px;
   font-size: 155px;
-  transform: rotate(-2deg);
+  transform: rotate(-7.5deg);
   color: rgba(255, 255, 255, 0.2);
 }
 
 .home-login-container {
-	margin-top: 54px;
+	margin-top: 62px;
 	overflow: auto;
 }
 
@@ -53,7 +53,6 @@
   font-size: 24px;
   padding: 5px 10px 8px;
   float: right;
-  margin-right: 18px;
   border-radius: 4px;
 }
 
@@ -78,4 +77,95 @@
   padding-bottom: 4px;
   max-width: 330px;
   border-radius: 500px;
+}
+
+@media (min-width: 768px) {
+	body {
+		background: #ece5cc;
+	}
+
+	.seats {
+		background: url(images/blue_seats_sm.jpg);
+		background-size: cover;
+    height: 405px;
+    position: absolute;
+    top: 74px;
+    right: 0px;
+    left: 0px;
+	}
+
+	.home-header-container {
+		background: url(images/ring.png);
+		background-size: cover;
+		height: 400px;
+		width: 400px;
+		margin: 75px auto 0;
+	}
+
+	.twitch-header-one {
+		font-size: 76px;
+		position: absolute;
+    top: 105px;
+    left: 33px;
+	}
+
+	.twitch-header-one-capital {
+		font-size: 96px;
+	}
+
+	.twitch-header-two {
+    font-size: 64px;
+		position: absolute;
+    right: 8px;
+    top: 209px;
+	}
+
+	.twitch-header-two-capital {
+		font-size: 82px;
+	}
+
+	.twitch-icon {
+    right: 64px;
+    bottom: 64px;
+    font-size: 62px;
+    color: #fff;
+	}
+
+	.home-login-container {
+		margin-top: 34px;
+	}
+
+	.home-login-header {
+		font-size: 42px;
+		text-align: center;
+		color: #444;
+		margin-bottom: 25px;
+	}
+
+	#homeLoginSubmit {
+		font-size: 26px;
+		margin-top: 8px;
+	}
+
+	.home-register-message {
+		color: #444;
+		font-size: 22px;
+    margin-top: 108px;
+	}
+
+	.home-register-btn {
+		height: 46px;
+		max-width: none;
+		width: 450px;
+		font-size: 26px;
+		padding-bottom: 6px;
+	}
+}
+
+@media (min-width: 992px) {
+
+}
+
+@media (min-width: 1200px) {
+
 }

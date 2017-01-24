@@ -1,7 +1,12 @@
+form {
+  width: 90%;
+  margin: 0 auto;
+}
+
 input {	
   display: block;
   font-family: 'Open Sans', sans-serif;
-  width: 90%;
+  width: 100%;
   height: 40px;
   padding-bottom: 2px;
   border-radius: 500px;
@@ -14,4 +19,20 @@ input {
 
 .btn {
   outline: none;
+}
+
+@media (min-width: 768px) {
+  form {
+    width: 600px;
+  }  
+
+  input {    
+    height: 45px;
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+
+  input::placeholder {
+    color: #665;
+  }
 }
