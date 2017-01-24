@@ -36,3 +36,15 @@ input {
     color: #665;
   }
 }
+
+@media (min-width: 992px) {
+  form {
+    width: 750px;
+  }
+
+  input {
+    height: 55px;
+    font-size: 26px;
+    margin-bottom: 14px;
+  }
+}

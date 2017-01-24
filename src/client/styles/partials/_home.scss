@@ -163,7 +163,60 @@
 }
 
 @media (min-width: 992px) {
+	.seats {
+		background: url(images/blue_seats_md.jpg);
+		height: 500px;
+	}
 
+	.home-header-container {
+		height: 490px;
+		width: 490px;
+	}
+
+	.twitch-header-one {
+		font-size: 85px;
+    top: 137px;
+    left: 60px;
+	}
+
+	.twitch-header-one-capital {
+    font-size: 108px;	
+	}
+
+	.twitch-header-two {
+    font-size: 78px;
+    top: 257px;
+	}
+
+	.twitch-header-two-capital {
+		font-size: 92px;
+	}
+
+	.twitch-icon {
+    right: 88px;
+    bottom: 103px;
+    font-size: 68px;
+	}
+
+	.home-login-header {
+		margin-top: 15px;
+		font-size: 60px;
+	}
+
+	#homeLoginSubmit {
+		padding: 10px 25px;
+		font-size: 30px;
+	}
+
+	.home-register-message {
+		font-size: 28px;
+	}
+
+	.home-register-btn {
+		height: 58px;
+    width: 550px;
+    font-size: 32px;
+	}
 }
 
 @media (min-width: 1200px) {
