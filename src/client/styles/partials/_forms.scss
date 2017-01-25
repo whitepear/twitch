@@ -19,6 +19,10 @@ input {
 
 .btn {
   outline: none;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 @media (min-width: 768px) {
@@ -46,5 +50,12 @@ input {
     height: 55px;
     font-size: 26px;
     margin-bottom: 14px;
+  }
+}
+
+@media (min-width: 1200px) {
+  input {
+    height: 50px;
+    font-size: 24px;
   }
 }

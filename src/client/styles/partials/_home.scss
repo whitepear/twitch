@@ -54,6 +54,10 @@
   padding: 5px 10px 8px;
   float: right;
   border-radius: 4px;
+
+  &:hover, &:active, &:focus {
+  	background: linear-gradient(#00BF41 45%, #009633);
+  }
 }
 
 .home-register-container {
@@ -77,6 +81,10 @@
   padding-bottom: 4px;
   max-width: 330px;
   border-radius: 500px;
+
+  &:hover, &:active, &:focus {
+  	background: linear-gradient(#EAA500 82%, #BD8500);
+  }
 }
 
 @media (min-width: 768px) {
@@ -220,5 +228,59 @@
 }
 
 @media (min-width: 1200px) {
+	.seats {
+ 		background: url(images/blue_seats_lg.jpg);
+ 		width: 100%;
+ 		height: 350px;
+ 		top: 37px;
+	}
 
+	.home-header-container {
+		height: 350px;
+		width: 350px;
+		margin-top: 37px;
+	}
+
+	.twitch-header-one {
+		font-size: 62px;
+    top: 83px;
+    left: 32px;
+	}
+
+	.twitch-header-one-capital {
+    font-size: 87px;
+	}
+
+	.twitch-header-two {
+		font-size: 58px;
+    top: 175px;
+	}
+
+	.twitch-header-two-capital {
+		font-size: 78px;
+	}
+
+	.twitch-icon {
+    right: 53px;
+    bottom: 64px;
+    font-size: 56px;
+	}
+
+	.home-login-header {
+		font-size: 48px;
+	}
+
+	#homeLoginSubmit {
+    padding: 8px 15px;
+    font-size: 28px;
+	}
+
+	.home-register-message {
+		font-size: 24px;
+	}
+
+	.home-register-btn {
+		height: 45px;
+    font-size: 26px;
+	}
 }
