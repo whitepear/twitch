@@ -1,4 +1,5 @@
 var React = require('react');
+var Link = require('react-router').Link;
 
 var Home = React.createClass({
 	render: function() {
@@ -23,9 +24,9 @@ var Home = React.createClass({
 				</div>
 				<div className="home-register-container">
 					<div className="home-register-message">Don't have an account?</div>
-					<a href="/register">
+					<Link to="/register">
 						<button type="button" className="btn home-register-btn">Register</button>
-					</a>
+					</Link>
 				</div>
 			</div>
 		)

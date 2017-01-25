@@ -1,0 +1,18 @@
+.not-found-code {
+	margin-top: 50px;
+	font-size: 74px;
+}
+
+.not-found-message {
+	font-size: 28px;
+}
+
+@media (min-width: 768px) {
+	.not-found-code {
+		font-size: 96px;
+	}
+
+	.not-found-message {
+		font-size: 38px;
+	}
+}
