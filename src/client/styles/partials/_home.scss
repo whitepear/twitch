@@ -5,7 +5,7 @@
 
 .twitch-header-one {
 	text-align: center;
-	font-size: 70px;
+	font-size: 62px;
 	margin-top: 7px;
   transform: rotate(-5.5deg);
 }
@@ -26,7 +26,7 @@
 }
 
 .twitch-header-two-capital {
-	font-size: 66px;
+	font-size: 70px;
 }
 
 .twitch-icon {
@@ -42,6 +42,25 @@
 .home-login-container {
 	margin-top: 62px;
 	overflow: auto;
+}
+
+.login-form {
+  margin: 0 auto;
+  max-width: 375px;
+}
+
+.login-input {	
+  display: block;
+  font-family: 'Open Sans', sans-serif;
+  width: 100%;
+  height: 40px;
+  padding-bottom: 2px;
+  border-radius: 500px;
+  padding-left: 18px;
+  border: none;
+  margin: 0 auto 10px;
+  font-size: 20px;
+  outline: none;
 }
 
 #homeLoginSubmit {
@@ -150,6 +169,21 @@
 		margin-bottom: 25px;
 	}
 
+  .login-form {
+    width: 600px;
+    max-width: none;
+  }  
+
+  .login-input {    
+    height: 45px;
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+
+  .login-input::placeholder {
+    color: #665;
+  }
+
 	#homeLoginSubmit {
 		font-size: 26px;
 		margin-top: 8px;
@@ -211,6 +245,16 @@
 		font-size: 60px;
 	}
 
+  .login-form {
+    width: 750px;
+  }
+
+  .login-input {
+    height: 55px;
+    font-size: 26px;
+    margin-bottom: 14px;
+  }
+
 	#homeLoginSubmit {
 		padding: 10px 25px;
 		font-size: 30px;
@@ -270,6 +314,11 @@
 		font-size: 48px;
 	}
 
+	.login-input {
+    height: 50px;
+    font-size: 24px;
+  }
+
 	#homeLoginSubmit {
     padding: 8px 15px;
     font-size: 28px;
@@ -282,5 +331,6 @@
 	.home-register-btn {
 		height: 45px;
     font-size: 26px;
+    margin-bottom: 50px;
 	}
 }
