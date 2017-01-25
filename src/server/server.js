@@ -5,7 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes.js');
+var routes = require('./routes/index.js');
 
 var app = express();
 
@@ -30,7 +30,7 @@ app.use(function(req, res, next) {
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
-    res.send(err);
+    res.send(err.message);
   });
 }
 
