@@ -1,0 +1,73 @@
+.register-banner {
+  height: 80px;
+  background: url(images/reels.png);
+  position: absolute;
+  top: 20px;
+  right: 0px;
+  left: 0px;
+  box-shadow: 0px 3px 8px 0px rgba(0,0,0,0.54);
+}
+
+.register-banner-text {
+	line-height: 80px;
+  padding-left: 15px;
+  font-size: 40px;
+}
+
+.register-form-container {
+	margin-top: 125px;
+}
+
+.register-form label {
+	display: block;
+	font-size: 22px;
+	margin-bottom: 5px;
+}
+
+.register-form input {
+	display: block;
+	height: 40px;
+	width: 100%;
+	font-size: 20px;
+	margin-bottom: 15px;
+	padding: 0 12px;
+	border-radius: 4px;
+	outline: none;
+	border: none;
+}
+
+.register-form input::placeholder {
+	font-family: 'Open Sans', sans-serif;
+}
+
+.register-form button {
+	display: inline-block;	
+  background: linear-gradient(#00DC4A 45%, #00BF41);  
+  border: none;
+  margin-top: 20px;
+	margin-right: 8px;
+	padding: 5px 10px 8px;
+  border-radius: 4px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 24px;
+  color: #fff;  
+
+  &:hover, &:active, &:focus {
+  	background: linear-gradient(#00BF41 45%, #009633);
+  }
+}
+
+.register-cancel {
+	display: inline-block;
+	height: 40px;
+	width: 107px;
+	background: linear-gradient(#FF2800 45%, #C61F00);
+  font-size: 24px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 4px;
+
+  &:hover, &:active, &:focus {
+  	background: linear-gradient(#C61F00 45%, #9B1800);
+  }
+}
