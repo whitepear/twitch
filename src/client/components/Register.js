@@ -17,6 +17,7 @@ function Register(props) {
 					<input type="password" id="registerPassword" placeholder="8 characters minimum." required />
 					<label htmlFor="registerPasswordRepeat">Repeat Password:</label>
 					<input type="password" id="registerPasswordRepeat" placeholder="Letters & numbers only." required />
+					<div id="registerFormMessage"></div>
 					<button type="submit" className="btn">Register</button>
 					<Link to="/" className="register-cancel">Cancel</Link>
 				</form>
