@@ -29,6 +29,7 @@
 	height: 40px;
 	width: 100%;
 	font-size: 20px;
+  font-family: 'Open Sans', sans-serif;
 	margin-bottom: 15px;
 	padding: 0 12px;
 	border-radius: 4px;
@@ -75,4 +76,51 @@
   &:hover, &:active, &:focus {
   	background: linear-gradient(#C61F00 45%, #9B1800);
   }
+}
+
+@media (min-width: 768px) {
+  .register-banner {
+    margin-top: 55px;
+    height: 130px;
+    background: url(images/reels_sm.jpg);
+    box-shadow: none;
+  }
+
+  .register-banner-text {
+    line-height: 130px;
+    font-size: 50px;
+    padding-left: 20px;
+  }
+
+  .register-form-container {
+    margin-top: 250px;
+    color: #444;
+  }
+
+  .register-form label {
+    font-size: 26px;
+    margin-bottom: 10px;
+  }
+
+  .register-form input {
+    height: 46px;
+    font-size: 24px;
+    margin-bottom: 28px;
+  }
+
+  .register-form button {
+    font-size: 28px;
+    margin-top: 32px;
+  }
+
+  .register-cancel {
+    width: 122px;
+    height: 45px;
+    font-size: 28px;
+    line-height: 45px;
+  }
+}
+
+@media (min-width: 992px) {
+
 }

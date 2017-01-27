@@ -16,8 +16,8 @@ var Home = React.createClass({
 				<div className="home-login-container">
 					<div className="hidden-xs home-login-header">Login</div>
 					<form action="/login" method="POST" className="login-form">
-						<input type="text" name="loginUsername" placeholder="Username" />
-						<input type="password" name="loginPassword" placeholder="Password" />
+						<input type="text" name="loginUsername" placeholder="Username" required />
+						<input type="password" name="loginPassword" placeholder="Password" required />
 						<button type="submit" className="btn">Login</button>
 					</form>
 					<div id="loginMessage"></div>
