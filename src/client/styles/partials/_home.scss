@@ -41,12 +41,17 @@
 
 .home-login-container {
 	margin-top: 62px;
-	overflow: auto;
 }
 
 .login-form {
   margin: 0 auto;
   max-width: 375px;
+}
+
+.login-form:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 .login-form input {	
@@ -78,6 +83,11 @@
   &:hover, &:active, &:focus {
   	background: linear-gradient(#00BF41 45%, #009633);
   }
+}
+
+#loginMessage {
+  font-size: 18px;
+  margin-top: 15px;
 }
 
 .home-register-container {

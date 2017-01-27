@@ -20,7 +20,7 @@ var Home = React.createClass({
 						<input type="password" name="loginPassword" placeholder="Password" />
 						<button type="submit" className="btn">Login</button>
 					</form>
-					<div id="loginMessage"></div>					
+					<div id="loginMessage"></div>
 				</div>
 				<div className="home-register-container">
 					<div className="home-register-message">Don't have an account?</div>
