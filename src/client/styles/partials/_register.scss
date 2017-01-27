@@ -122,5 +122,40 @@
 }
 
 @media (min-width: 992px) {
+  .register-banner {
+    height: 200px;
+    background: url(images/reels_md.jpg);
+  }
 
+  .register-banner-text {
+    line-height: 200px;
+    font-size: 70px;
+    padding-left: 38px;
+  }
+
+  .register-form-container {
+    margin-top: 345px;
+  }
+
+  .register-form label {
+    font-size: 32px;
+  }
+
+  .register-form input {
+    height: 58px;
+    font-size: 28px;
+    margin-bottom: 35px;
+  }
+
+  .register-form button {
+    font-size: 32px;
+    padding: 12px;
+  }
+
+  .register-cancel {
+    font-size: 32px;
+    height: 60px;
+    width: 140px;
+    line-height: 60px;    
+  }
 }
