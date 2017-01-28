@@ -69,7 +69,7 @@ module.exports.loginValidation = function(formInfo) {
 	var username = formInfo.loginUsername.trim();
 	var password = formInfo.loginPassword;
 
-	if(!username || !password) {
+	if (!username || !password) {
 		return {
 			validationPassed: false,
 			validationMessage: 'Please fill out all fields before submitting.'

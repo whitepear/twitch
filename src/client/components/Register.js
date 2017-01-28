@@ -34,6 +34,6 @@ Register.propTypes = {
 	onRegisterSubmit: PropTypes.func.isRequired,
 	validationMessage: PropTypes.string.isRequired,
 	validationPassed: PropTypes.bool.isRequired
-}
+};
 
 module.exports = Register;
