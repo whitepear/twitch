@@ -16,8 +16,8 @@ function Home(props) {
 			<div className="home-login-container">
 				<div className="hidden-xs home-login-header">Login</div>
 				<form action="/login" method="POST" onSubmit={props.onLoginSubmit} className="login-form">
-					<input type="text" name="loginUsername" placeholder="Username" onChange={props.onFieldChange} required />
-					<input type="password" name="loginPassword" placeholder="Password" onChange={props.onFieldChange} required />
+					<input type="text" id="loginUsername" name="loginUsername" placeholder="Username" onChange={props.onFieldChange} required />
+					<input type="password" id="loginPassword" name="loginPassword" placeholder="Password" onChange={props.onFieldChange} required />
 					<button type="submit" className="btn" disabled={props.validationPassed}>Login</button>
 				</form>
 				<div id="loginMessage">

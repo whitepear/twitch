@@ -1,6 +1,7 @@
 var React = require('react');
 var Home = require('../components/Home.js');
 var loginValidation = require('../utils/clientValidation.js').loginValidation;
+var axios = require('axios');
 
 var HomeContainer = React.createClass({
 	contextTypes: {
@@ -19,7 +20,7 @@ var HomeContainer = React.createClass({
 			[e.target.id]: e.target.value
 		});
 	},
-	handleLoginSubmit: function() {
+	handleLoginSubmit: function(e) {
 		e.preventDefault();
 		var validationResult = loginValidation(this.state);
 
