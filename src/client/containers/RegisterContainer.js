@@ -28,7 +28,7 @@ var RegisterContainer = React.createClass({
 
 		if (validationResult.validationPassed) {
 			// passed client-side validation, call handleServerSubmission to send
-			// to server for further validation and registration
+			// form info to server for further validation and registration
 
 			// disable registration submit button while server-side 
 			// validation takes place
@@ -46,11 +46,11 @@ var RegisterContainer = React.createClass({
 		// pass form-data to server for validation and potential registration
 		axios.post('/register', this.state)
 		.then(function(serverRes) {
-			if (res.data.serverValidationPassed) {
+			if (serverRes.data.serverValidationPassed) {
 				// validation passed, user registered
 				// redirect user				
 				this.setState({
-					validationMessage: res.data.serverValidationMessage
+					validationMessage: serverRes.data.serverValidationMessage
 				}, function() {
 					setTimeout(function() {
 						this.context.router.push('/');						
@@ -59,7 +59,7 @@ var RegisterContainer = React.createClass({
 			} else {
 				// failed server validation
 				this.setState({
-					validationMessage: res.data.serverValidationMessage,
+					validationMessage: serverRes.data.serverValidationMessage,
 					validationPassed: false					
 				});
 			}
