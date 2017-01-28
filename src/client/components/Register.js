@@ -11,13 +11,13 @@ function Register(props) {
 			<div className="register-form-container">
 				<form action="/register" method="POST" onSubmit={props.onRegisterSubmit} className="register-form">
 					<label htmlFor="registerEmail">Email:</label>
-					<input type="text" id="registerEmail" required />
+					<input type="text" id="registerEmail" onChange={props.onFieldChange} required />
 					<label htmlFor="registerUsername">Username:</label>
-					<input type="text" id="registerUsername" required />
+					<input type="text" id="registerUsername" onChange={props.onFieldChange} required />
 					<label htmlFor="registerPassword">Password:</label>
-					<input type="password" id="registerPassword" placeholder="8 characters minimum." required />
+					<input type="password" id="registerPassword" placeholder="8 characters minimum." onChange={props.onFieldChange} required />
 					<label htmlFor="registerPasswordRepeat">Repeat Password:</label>
-					<input type="password" id="registerPasswordRepeat" placeholder="Letters & numbers only." required />
+					<input type="password" id="registerPasswordRepeat" placeholder="Letters & numbers only." onChange={props.onFieldChange} required />
 					<div id="registerFormMessage">
 						{props.validationMessage}
 					</div>
