@@ -89,7 +89,8 @@
   .register-banner-text {
     line-height: 130px;
     font-size: 50px;
-    padding-left: 20px;
+    padding-left: 26px;
+    font-family: Summer-Hearts;
   }
 
   .register-form-container {
@@ -130,7 +131,7 @@
   .register-banner-text {
     line-height: 200px;
     font-size: 70px;
-    padding-left: 38px;
+    padding-left: 44px;
   }
 
   .register-form-container {
@@ -157,5 +158,38 @@
     height: 60px;
     width: 140px;
     line-height: 60px;    
+  }
+}
+
+@media (min-width: 1200px) {
+  .register-banner {
+    background: url(images/reels_lg.jpg);
+  }
+
+  .register-banner-text {
+    text-align: center;
+    font-size: 88px;
+    padding-left: 0px;
+  }
+
+  .register-form label {
+    font-size: 24px;
+  }
+
+  .register-form input {
+    height: 46px;
+    font-size: 24px;
+    margin-bottom: 26px;
+  }
+
+  .register-form button {
+    font-size: 26px;
+  }
+
+  .register-cancel {
+    width: 118px;
+    height: 53px;
+    line-height: 53px;
+    font-size: 26px;
   }
 }
