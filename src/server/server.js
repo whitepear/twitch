@@ -5,6 +5,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mysql = require('mysql');
 var session = require('express-session');
 var MySQLStore = require('express-mysql-session')(session);
 
@@ -20,16 +21,16 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-var options = {
+var pool = mysql.createPool({
+	connectionLimit : 10,
   host: process.env.DB_HOST,
   port: process.env.DB_PORT,
   user: process.env.DB_USER,
-  password: process.env.DB_PASS,
-  database: 'session_test',
-  connectionLimit: 5
-};
+  password: process.env.DB_PASS,  
+  database : 'TwitchTV'
+});
  
-var sessionStore = new MySQLStore(options);
+var sessionStore = new MySQLStore({}, pool);
  
 app.use(session({
   key: 'session_cookie_name',
@@ -38,6 +39,12 @@ app.use(session({
   resave: true,
   saveUninitialized: false
 }));
+
+app.use(function(req, res, next) {
+	// make connection pool available throughout server
+	req.pool = pool;
+	next();
+});
 
 app.use('/', routes);
 
