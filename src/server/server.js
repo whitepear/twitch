@@ -1,9 +1,12 @@
 var express = require('express');
+require('dotenv').config();
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
+var MySQLStore = require('express-mysql-session')(session);
 
 var routes = require('./routes/index.js');
 
@@ -16,6 +19,25 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+var options = {
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: 'session_test',
+  connectionLimit: 5
+};
+ 
+var sessionStore = new MySQLStore(options);
+ 
+app.use(session({
+  key: 'session_cookie_name',
+  secret: process.env.SESSION_SECRET,
+  store: sessionStore,
+  resave: true,
+  saveUninitialized: false
+}));
 
 app.use('/', routes);
 
