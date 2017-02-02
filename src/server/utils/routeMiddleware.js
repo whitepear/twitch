@@ -61,5 +61,6 @@ function loggedIn(req, res, next) {
 	}	
 }
 
+module.exports.sanitizeUserInput = sanitizeUserInput;
 module.exports.loggedOut = loggedOut;
 module.exports.loggedIn = loggedIn;

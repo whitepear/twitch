@@ -20,7 +20,7 @@ module.exports.registrationValidation = function(formInfo) {
 	if (username.length > 30) {
 		return {
 			validationPassed: false,
-			validationMessage: 'Your username is too long. 30 characters maximum.'
+			validationMessage: 'Username is too long. 30 characters maximum.'
 		}
 	}
 
