@@ -27,7 +27,7 @@ var pool = mysql.createPool({
   port: process.env.DB_PORT,
   user: process.env.DB_USER,
   password: process.env.DB_PASS,  
-  database : 'TwitchTV'
+  database : 'twitch'
 });
  
 var sessionStore = new MySQLStore({}, pool);
@@ -41,7 +41,7 @@ app.use(session({
 }));
 
 app.use(function(req, res, next) {
-	// make connection pool available throughout server
+	// make connection pool available throughout server files
 	req.pool = pool;
 	next();
 });
