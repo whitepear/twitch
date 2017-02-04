@@ -44,22 +44,22 @@ var HomeContainer = React.createClass({
 		// pass form-data to server for validation and potential login
 		axios.post('/login', this.state)
 		.then(function(serverRes) {
-			if (serverRes.data.serverValidationPassed) {
+			if (serverRes.data === 'Success') {
 				// validation passed, user logged in
-				// redirect user				
-				this.context.router.push('/');
+				// redirect user
+				this.context.push('/');
 			} else {
 				// failed server validation
 				this.setState({
-					validationMessage: serverRes.data.serverValidationMessage,
-					validationPassed: false					
+					validationMessage: serverRes.data,
+					validationPassed: false
 				});
-			}
+			}			
 		}.bind(this))
 		.catch(function(err) {
 			console.log(err);
 			this.setState({
-				validationMessage: 'A server error occurred while processing your request. Please try again later.',
+				validationMessage: 'A server error occurred while processing your request.\nPlease try again later.',
 				validationPassed: false
 			});
 		}.bind(this))

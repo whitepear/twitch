@@ -2,7 +2,9 @@ var express = require('express');
 var path = require('path');
 var router = express.Router();
 var mid = require('../utils/routeMiddleware.js');
-var registrationValidation = require('../utils/serverValidation.js').registrationValidation;
+var serverValidation = require('../utils/serverValidation.js');
+var registrationValidation = serverValidation.registrationValidation;
+var loginValidation = serverValidation.loginValidation;
 var registerUser = require('../utils/registerUser.js');
 
 // serve react-client
@@ -11,7 +13,7 @@ router.get('*', function(req, res) {
 });
 
 
-// register users
+// register user
 router.post('/register', mid.loggedOut, mid.sanitizeUserInput, function(req, res, next) {
 	// trim fields, except passwords
 	var userInfo = {
@@ -36,6 +38,29 @@ router.post('/register', mid.loggedOut, mid.sanitizeUserInput, function(req, res
 		if (typeof err !== 'string') {
 			err = 'An error occurred during registration.\nPlease try again later.';
 		}
+		res.json(err);
+	});
+});
+
+// login user
+router.post('/login', mid.loggedOut, mid.sanitizeUserInput, function(req, res, next) {
+	var userInfo = {	
+		username: req.body.loginUsername.trim(),
+		password: req.body.loginPassword
+	};
+
+	loginValidation(userInfo, req.pool)
+	.then(function(username) {
+		// validation passed, login user
+		req.session.userId = username;
+		res.json('Success');
+	})
+	.catch(function(err) {
+		// validation failed, or program error
+		if (typeof err !== 'string') {
+			err = 'An error occurred while attempting to log you in.\nPlease try again later.';
+		}
+
 		res.json(err);
 	});
 });
