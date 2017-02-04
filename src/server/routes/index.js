@@ -65,4 +65,16 @@ router.post('/login', mid.loggedOut, mid.sanitizeUserInput, function(req, res, n
 	});
 });
 
+// logout user
+router.post('/logOut', function(req, res, next) {
+	if (req.session) {
+    // delete session object
+    req.session.destroy(function(err) {
+			if (err) {
+        return next(err);
+      }
+    });
+	}
+});
+
 module.exports = router;
