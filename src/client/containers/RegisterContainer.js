@@ -46,11 +46,11 @@ var RegisterContainer = React.createClass({
 		// pass form-data to server for validation and potential registration
 		axios.post('/register', this.state)
 		.then(function(serverRes) {
-			if (serverRes.data.serverValidationPassed) {
+			if (serverRes.data === 'Success') {
 				// validation passed, user registered
 				// redirect user				
 				this.setState({
-					validationMessage: serverRes.data.serverValidationMessage
+					validationMessage: 'You\'ve been successfully registered!'
 				}, function() {
 					setTimeout(function() {
 						this.context.router.push('/');						
@@ -59,7 +59,7 @@ var RegisterContainer = React.createClass({
 			} else {
 				// failed server validation
 				this.setState({
-					validationMessage: serverRes.data.serverValidationMessage,
+					validationMessage: serverRes.data,
 					validationPassed: false					
 				});
 			}
