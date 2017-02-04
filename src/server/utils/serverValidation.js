@@ -1,5 +1,6 @@
-// Validate registration form data
+var bcrypt = require('bcryptjs');
 
+// Validate registration form data
 module.exports.registrationValidation = function(userInfo, dbPool) {
 	return new Promise(function(resolve, reject) {
 		var email = userInfo.email;
@@ -65,4 +66,50 @@ module.exports.registrationValidation = function(userInfo, dbPool) {
 		  }); // end connection query
 		}); // end getConnection
 	}); // end return promise	
-}
+} // end function
+
+
+// validate login form data
+module.exports.loginValidation = function(userInfo, dbPool) {
+	return new Promise(function(resolve, reject) {
+		var username = userInfo.username;
+		var password = userInfo.password;
+
+		if (!username || !password) {
+			return reject('Please fill out all fields before attempting to log in.');
+		}
+
+		// check if username provided has been registered
+		dbPool.getConnection(function(connectionErr, connection) {
+			if (connectionErr) {
+				return reject('A server error occurred while attempting to log you in.\nPlease try again later.');
+			}
+
+			var sqlQuery = 'SELECT u.user_username, u.user_password FROM user u WHERE u.user_username = ' + connection.escape(username);
+			connection.query(sqlQuery, function(queryErr, results, fields) {
+				connection.release();
+
+				if (queryErr) {
+					return reject('A server error occurred while attempting to log you in.\nPlease try again later.');
+				}
+
+				if (results.length === 0) {
+					return reject('The username provided has not been registered.');
+				}
+
+				// check password matches
+				bcrypt.compare(dbPool.escape(password), results[0].user_password, function(compareErr, compareResult) {
+					if (compareErr) {
+						return reject('A server error occurred while attempting to log you in.\nPlease try again later.');
+					}
+
+					if (compareResult) {
+						return resolve(username);
+					} else {
+						return reject('The password you have provided is incorrect.');
+					}
+				}); // end compare
+			}); // end query
+		}); // end getConnection
+	}); // end new Promise
+} // end function
