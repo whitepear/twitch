@@ -47,7 +47,7 @@ var HomeContainer = React.createClass({
 			if (serverRes.data === 'Success') {
 				// validation passed, user logged in
 				// redirect user
-				this.context.push('/');
+				this.context.router.push('/viewer');
 			} else {
 				// failed server validation
 				this.setState({

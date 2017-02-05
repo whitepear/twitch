@@ -53,7 +53,7 @@ var RegisterContainer = React.createClass({
 					validationMessage: 'You\'ve been successfully registered!'
 				}, function() {
 					setTimeout(function() {
-						this.context.router.push('/');						
+						this.context.router.push('/viewer');						
 					}.bind(this), 1500);
 				});
 			} else {
