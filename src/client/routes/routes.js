@@ -7,7 +7,7 @@ var browserHistory = ReactRouter.browserHistory;
 var MainContainer = require('../containers/MainContainer.js');
 var HomeContainer = require('../containers/HomeContainer.js');
 var RegisterContainer = require('../containers/RegisterContainer.js');
-
+var ViewerContainer = require('../containers/ViewerContainer.js');
 var NotFound = require('../components/NotFound.js');
 
 var routes = (
@@ -15,6 +15,7 @@ var routes = (
 		<Route path='/' component={MainContainer}>
 			<IndexRoute component={HomeContainer} />
 			<Route path="register" component={RegisterContainer} />
+			<Route path="viewer" component={ViewerContainer} />
 			<Route path="*" component={NotFound} />
 		</Route>
 	</Router>
