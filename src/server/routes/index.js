@@ -77,4 +77,13 @@ router.post('/logOut', function(req, res, next) {
 	}
 });
 
+// check user's login status
+router.post('/checkLoginStatus', function(req, res, next) {
+	if (req.session && req.session.userId) {
+		res.send(true);
+	} else {
+		res.send(false);
+	}
+});
+
 module.exports = router;
