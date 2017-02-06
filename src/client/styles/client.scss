@@ -3,6 +3,7 @@
 @import 'partials/_home.scss';
 @import 'partials/_register.scss';
 @import 'partials/_notfound.scss';
+@import 'partials/_loading.scss';
 
 
 @font-face {
@@ -28,6 +29,7 @@ body {
 	padding: 0.1px; // to prevent margin collapse
 	color: #fff;
 	background: fixed linear-gradient(#4b9f92 55%, #2F897A);
+	background: fixed linear-gradient(#FBAC76 55%, #D8834A);
 	font-family: 'Open Sans', sans-serif;
 }
 
