@@ -1,6 +1,8 @@
 var express = require('express');
+require('dotenv').config();
 var path = require('path');
 var router = express.Router();
+var axios = require('axios');
 var mid = require('../utils/routeMiddleware.js');
 var serverValidation = require('../utils/serverValidation.js');
 var registrationValidation = serverValidation.registrationValidation;
@@ -66,7 +68,7 @@ router.post('/login', mid.loggedOut, mid.sanitizeUserInput, function(req, res, n
 });
 
 // logout user
-router.post('/logOut', function(req, res, next) {
+router.post('/logOut', mid.loggedIn, function(req, res, next) {
 	if (req.session) {
     // delete session object
     req.session.destroy(function(err) {
@@ -85,6 +87,18 @@ router.post('/checkLoginStatus', function(req, res, next) {
 	} else {
 		res.send(false);
 	}
+});
+
+// retrieve games with highest viewer numbers from twitch api
+router.post('/topGames', mid.loggedIn, function(req, res, next) {
+	axios.get('https://api.twitch.tv/kraken/games/top?client_id=' + process.env.TWITCH_ID)
+	.then(function(apiRes) {
+		res.json(apiRes.data.top);
+	})
+	.catch(function(err) {
+		console.log(err);
+		res.json('An error occurred while fetching TwitchTV data. \nPlease try again later.');
+	});
 });
 
 module.exports = router;
