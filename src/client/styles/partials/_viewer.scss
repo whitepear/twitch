@@ -1,0 +1,49 @@
+.viewer-nav {
+	height: 70px;
+	line-height: 70px;
+}
+
+.twitch-logo {
+  display: inline;
+  font-family: 'Icomoon';
+  font-size: 48px;
+}
+
+.log-out-container {
+  text-align: right;
+  display: inline-block;
+  position: absolute;
+  right: 10px;
+}
+
+.log-out-btn {
+  border: none;
+  color: #fff;
+  font-family: 'Open Sans', sans-serif;
+  background: #01D6E0;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 20px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.tab-container {
+	display: flex;
+	margin-top: 30px;
+	margin-bottom: 35px;
+	border-bottom: 1px solid #fff;
+}
+
+.tab {
+  flex: 1;
+  text-align: center;
+  font-size: 23px;  
+  padding-bottom: 14px;
+}
+
+.active-tab {
+	border-bottom: 5px solid #fff;
+}

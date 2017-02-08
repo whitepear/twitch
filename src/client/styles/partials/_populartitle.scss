@@ -1,0 +1,35 @@
+.popular-title-container {
+	display: flex;
+	margin-bottom: 10px;
+}
+
+.popular-title-image {
+	flex: 1;
+	border: 1px solid #fff;
+}
+
+.popular-title-description {
+	flex: 3;
+	padding-left: 10px;
+}
+
+.popular-title-name {	
+  font-size: 22px;
+  padding-top: 5px;
+  margin-bottom: 12px;
+}
+
+.popular-title-viewers {
+	font-size: 18px;
+}
+
+.popular-title-btn {
+  color: #000;
+  background: #fff;
+  border: none;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+  padding: 8px;
+  margin-top: 14px;
+  border-radius: 3px;
+}
