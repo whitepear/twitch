@@ -101,4 +101,32 @@ router.post('/topGames', mid.loggedIn, function(req, res, next) {
 	});
 });
 
+// retrieve streams based on provided search input
+router.post('/streams', function(req, res, next) {
+	var searchQuery = req.body.searchQuery;
+	axios.get('https://api.twitch.tv/kraken/search/streams?query=' + searchQuery + '&client_id=' + process.env.TWITCH_ID)
+	.then(function(apiRes) {
+		console.log(apiRes.data.streams.length);
+		res.json(apiRes.data);
+	})
+	.catch(function(err) {
+		console.log(err);
+		res.json('An error occurred while fetching TwitchTV data. \nPlease try again later.');
+	})
+});
+
+// retrieve channels based on provided search input 
+router.post('/channels', function(req, res, next) {
+	var searchQuery = req.body.searchQuery;
+	axios.get('https://api.twitch.tv/kraken/search/channels?query=' + searchQuery + '&client_id=' + process.env.TWITCH_ID)
+	.then(function(apiRes) {
+		console.log(apiRes);
+		res.json(apiRes.data);
+	})
+	.catch(function(err) {
+		console.log(err);
+		res.json('An error occurred while fetching TwitchTV data. \nPlease try again later.');
+	});
+});
+
 module.exports = router;
