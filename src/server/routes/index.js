@@ -9,6 +9,7 @@ var registrationValidation = serverValidation.registrationValidation;
 var loginValidation = serverValidation.loginValidation;
 var registerUser = require('../utils/registerUser.js');
 var getFavourites = require('../utils/getFavourites.js');
+var updateFavourites = require('../utils/updateFavourites.js');
 
 // serve react-client
 router.get('*', function(req, res) {
@@ -135,11 +136,33 @@ router.post('/channels', function(req, res, next) {
 // get user's favourite channels
 router.post('/getFavourites', mid.loggedIn, function(req, res, next) {
 	getFavourites(req.session.userId, req.pool)
-	.then(function(favourites) {
+	.then(function(favourites) {		
 		res.json(favourites);
 	})
 	.catch(function(err) {
 		res.json('An error occurred while trying to retrieve user\'s favourites. \nPlease try again later.');
+	});
+});
+
+// add channel to user's favourites
+router.post('/addChannel', mid.loggedIn, function(req, res, next) {
+	updateFavourites('add', req.channelId, req.session.userId, req.pool)
+	.then(function() {
+		res.json('Success');
+	})
+	.catch(function(err) {
+		res.json('An error occurred while adding channel to user\'s favourites. \nPlease try again later.');
+	});
+});
+
+// remove channel from user's favourites
+router.post('/removeChannel', mid.loggedIn, function(req, res, next) {
+	updateFavourites('remove', req.channelId, req.session.userId, req.pool)
+	.then(function() {
+		res.json('Success');
+	})
+	.catch(function(err) {
+		res.json('An error occurred while removing channel from user\'s favourites. \nPlease try again later.');
 	});
 });
 
