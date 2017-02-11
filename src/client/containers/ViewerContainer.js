@@ -9,23 +9,8 @@ var ViewerContainer = React.createClass({
 	},
 	getInitialState: function() {
 		return {
-			activeTab: 'Search',
-			userFavourites: []
+			activeTab: 'Search'
 		};
-	},
-	componentDidMount: function() {
-		this.getUserFavourites();
-	},
-	getUserFavourites: function() {
-		axios.post('/getFavourites')
-		.then(function(res) {
-			this.setState({
-				userFavourites: res.data
-			});
-		}.bind(this))
-		.catch(function(err) {
-			console.log(err);
-		});
 	},
 	handleLogOut: function(e) {
 		axios.post('/logOut')
@@ -49,7 +34,7 @@ var ViewerContainer = React.createClass({
 					<div className={ (this.state.activeTab === 'Search' ? 'active-tab ' : '' ) + "tab" }>Search</div>
 					<div className={ (this.state.activeTab === 'Favourites' ? 'active-tab ' : '' ) + "tab" }>Favourites</div>
 				</div>
-				{this.state.activeTab === 'Search' ? <SearchContainer userFavourites={this.state.userFavourites} /> : <FavouritesContainer />}
+				{this.state.activeTab === 'Search' ? <SearchContainer /> : <FavouritesContainer />}
 			</div>
 		);
 	}
