@@ -138,7 +138,7 @@ router.post('/channels', function(req, res, next) {
 
 // add channel to user's favourites
 router.post('/addChannel', mid.loggedIn, function(req, res, next) {
-	updateFavourites('add', req.channelId, req.session.userId, req.pool)
+	updateFavourites('add', req.body.channelId, req.session.userId, req.pool)
 	.then(function() {
 		res.json('Success');
 	})
@@ -149,7 +149,7 @@ router.post('/addChannel', mid.loggedIn, function(req, res, next) {
 
 // remove channel from user's favourites
 router.post('/removeChannel', mid.loggedIn, function(req, res, next) {
-	updateFavourites('remove', req.channelId, req.session.userId, req.pool)
+	updateFavourites('remove', req.body.channelId, req.session.userId, req.pool)
 	.then(function() {
 		res.json('Success');
 	})
