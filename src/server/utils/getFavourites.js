@@ -17,7 +17,11 @@ module.exports = function(userId, dbPool) {
 					return reject();
 				}
 
-				return resolve(results);
+				var processedResults = results.map(function(result) {
+					return Number(result.channel_channel_id);
+				});
+
+				return resolve(processedResults);
 			}); // end connection
 		}); // end getConnection
 	}); // end Promise
