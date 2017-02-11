@@ -9,6 +9,7 @@ var registrationValidation = serverValidation.registrationValidation;
 var loginValidation = serverValidation.loginValidation;
 var registerUser = require('../utils/registerUser.js');
 var getFavourites = require('../utils/getFavourites.js');
+var processStreamData = require('../utils/processStreamData.js');
 var updateFavourites = require('../utils/updateFavourites.js');
 
 // serve react-client
@@ -108,14 +109,16 @@ router.post('/streams', function(req, res, next) {
 	var searchQuery = req.body.searchQuery;
 	var offset = req.body.page * 10;
 
-	axios.get('https://api.twitch.tv/kraken/search/streams?query=' + searchQuery + '&offset=' + offset + '&client_id=' + process.env.TWITCH_ID)
-	.then(function(apiRes) {
-		res.json(apiRes.data);
+	var streamsPromise = axios.get('https://api.twitch.tv/kraken/search/streams?query=' + searchQuery + '&offset=' + offset + '&client_id=' + process.env.TWITCH_ID);
+	var favouritesPromise = getFavourites(req.session.userId, req.pool);
+	Promise.all([streamsPromise, favouritesPromise])
+	.then(function(valueArr) {
+		res.json(processStreamData(valueArr));
 	})
 	.catch(function(err) {
 		console.log(err);
 		res.json('An error occurred while fetching TwitchTV data. \nPlease try again later.');
-	})
+	});
 });
 
 // retrieve channels based on provided search input 
@@ -130,17 +133,6 @@ router.post('/channels', function(req, res, next) {
 	.catch(function(err) {
 		console.log(err);
 		res.json('An error occurred while fetching TwitchTV data. \nPlease try again later.');
-	});
-});
-
-// get user's favourite channels
-router.post('/getFavourites', mid.loggedIn, function(req, res, next) {
-	getFavourites(req.session.userId, req.pool)
-	.then(function(favourites) {		
-		res.json(favourites);
-	})
-	.catch(function(err) {
-		res.json('An error occurred while trying to retrieve user\'s favourites. \nPlease try again later.');
 	});
 });
 
