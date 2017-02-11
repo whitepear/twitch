@@ -8,6 +8,7 @@ var serverValidation = require('../utils/serverValidation.js');
 var registrationValidation = serverValidation.registrationValidation;
 var loginValidation = serverValidation.loginValidation;
 var registerUser = require('../utils/registerUser.js');
+var getFavourites = require('../utils/getFavourites.js');
 
 // serve react-client
 router.get('*', function(req, res) {
@@ -128,6 +129,17 @@ router.post('/channels', function(req, res, next) {
 	.catch(function(err) {
 		console.log(err);
 		res.json('An error occurred while fetching TwitchTV data. \nPlease try again later.');
+	});
+});
+
+// get user's favourite channels
+router.post('/getFavourites', mid.loggedIn, function(req, res, next) {
+	getFavourites(req.session.userId, req.pool)
+	.then(function(favourites) {
+		res.json(favourites);
+	})
+	.catch(function(err) {
+		res.json('An error occurred while trying to retrieve user\'s favourites. \nPlease try again later.');
 	});
 });
 
