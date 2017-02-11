@@ -18,7 +18,7 @@ module.exports = function(userId, dbPool) {
 				}
 
 				var processedResults = results.map(function(result) {
-					return Number(result.channel_channel_id);
+					return result.channel_channel_id;
 				});
 
 				return resolve(processedResults);
