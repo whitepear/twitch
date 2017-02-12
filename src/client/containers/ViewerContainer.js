@@ -12,7 +12,7 @@ var ViewerContainer = React.createClass({
 			activeTab: 'Search'
 		};
 	},
-	handleLogOut: function(e) {
+	handleLogOut: function() {
 		axios.post('/logOut')
 		.then(function() {
 			this.context.router.push('/');
@@ -20,6 +20,17 @@ var ViewerContainer = React.createClass({
 		.catch(function(err) {
 			console.log('/logOut POST error: ', err);
 		});
+	},
+	handleTabClick: function(e) {
+		if (e.target.id === 'searchTab') {
+			this.setState({
+				activeTab: 'Search'
+			});
+		} else {
+			this.setState({
+				activeTab: 'Favourites'
+			});
+		}
 	},
 	render: function() {
 		return (
@@ -32,8 +43,8 @@ var ViewerContainer = React.createClass({
 					</div>						
 				</div>
 				<div className="tab-container">
-					<div className={ (this.state.activeTab === 'Search' ? 'active-tab ' : '' ) + "tab" }>Search</div>
-					<div className={ (this.state.activeTab === 'Favourites' ? 'active-tab ' : '' ) + "tab" }>Favourites</div>
+					<div className={ (this.state.activeTab === 'Search' ? 'active-tab ' : '' ) + "tab" } id="searchTab" onClick={this.handleTabClick}>Search</div>
+					<div className={ (this.state.activeTab === 'Favourites' ? 'active-tab ' : '' ) + "tab" } id="favouritesTab" onClick={this.handleTabClick}>Favourites</div>
 				</div>
 				{this.state.activeTab === 'Search' ? <SearchContainer /> : <FavouritesContainer />}
 			</div>
