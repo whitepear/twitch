@@ -10,6 +10,7 @@ var loginValidation = serverValidation.loginValidation;
 var registerUser = require('../utils/registerUser.js');
 var getFavourites = require('../utils/getFavourites.js');
 var processStreamData = require('../utils/processStreamData.js');
+var processChannelData = require('../utils/processChannelData.js');
 var updateFavourites = require('../utils/updateFavourites.js');
 
 // serve react-client
@@ -126,9 +127,11 @@ router.post('/channels', function(req, res, next) {
 	var searchQuery = req.body.searchQuery;
 	var offset = req.body.page * 10;
 
-	axios.get('https://api.twitch.tv/kraken/search/channels?query=' + searchQuery + '&offset=' + offset + '&client_id=' + process.env.TWITCH_ID)
-	.then(function(apiRes) {
-		res.json(apiRes.data);
+	var channelsPromise = axios.get('https://api.twitch.tv/kraken/search/channels?query=' + searchQuery + '&offset=' + offset + '&client_id=' + process.env.TWITCH_ID)
+	var favouritesPromise = getFavourites(req.session.userId, req.pool);
+	Promise.all([channelsPromise, favouritesPromise])
+	.then(function(valueArr) {
+		res.json(processChannelData(valueArr, offset));
 	})
 	.catch(function(err) {
 		console.log(err);
