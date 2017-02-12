@@ -13,7 +13,7 @@ module.exports = function(arr, offset) {
 	 	}
 
 	 	// check if stream's channel is a user favourite
-	 	if (favouritesData.indexOf(stream.channel._id) > -1) {
+	 	if (favouritesData.indexOf(stream.channel.name) > -1) {
 	 		stream.channel.favourite = true;
 	 	} else {
 	 		stream.channel.favourite = false;

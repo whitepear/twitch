@@ -13,7 +13,7 @@ module.exports = function(arr, offset) {
 		}
 
 		// check if channel is a user favourite
-		if (favouritesData.indexOf(channel._id) > -1) {
+		if (favouritesData.indexOf(channel.name) > -1) {
 			channel.favourite = true;
 		} else {
 			channel.favourite = false;
