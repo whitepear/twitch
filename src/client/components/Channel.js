@@ -2,17 +2,17 @@ var React = require('react');
 var PropTypes = React.PropTypes;
 var axios = require('axios');
 
-// component for displaying info about a stream returned by
-// getStreams, within SearchContainer.	
-		
-var Stream = React.createClass({
+// component for displaying info about a channel returned by
+// getChannels, within SearchContainer.	
+
+var Channel = React.createClass({
 	propTypes: {
-		streamData: PropTypes.object.isRequired
+		channelData: PropTypes.object.isRequired
 	},
-	getInitialState: function() {
+	getInitialState: function() {		
 		// prop passed to favourite is only used as initial seed data
 		return {
-			favourite: this.props.streamData.channel.favourite
+			favourite: this.props.channelData.favourite
 		};		
 	},
 	handleFavourite: function(e) {
@@ -40,16 +40,16 @@ var Stream = React.createClass({
 	},
 	render: function() {
 		return (
-			<div className="stream-container">
-				<img src={this.props.streamData.channel.logo} className="stream-image" alt="Channel logo."/>
-				<div className="stream-description">
-					<div className="stream-name">{this.props.streamData.channel.display_name}</div>
-					<div className="stream-favourite" id={this.props.streamData.channel._id} onClick={this.handleFavourite}>{this.state.favourite ? "" : ""}</div>
-					<a href={this.props.streamData.channel.url} className="stream-link">View Stream</a>
+			<div className="channel-container">
+				<img src={this.props.channelData.logo} className="channel-image" alt="Channel logo."/>
+				<div className="channel-description">
+					<div className="channel-name">{this.props.channelData.display_name}</div>
+					<div className="channel-favourite" id={this.props.channelData._id} onClick={this.handleFavourite}>{this.state.favourite ? "" : ""}</div>
+					<a href={this.props.channelData.url} className="channel-link">View Channel</a>
 				</div>
 			</div>
 		);
 	}
 });
 
-module.exports = Stream;
+module.exports = Channel;
