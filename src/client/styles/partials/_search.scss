@@ -24,18 +24,39 @@
   color: #fff;
   padding: 10px;
   border-radius: 3px;
+}
 
-  &:first-child {
-    margin-right: 5px;
-    background: #13C629;
-  }
+#streamsBtn {
+  @extend .search-btn;
 
-  &:last-child {
-    margin-left: 5px;
-    background: #89D403;
-  }
+  margin-right: 5px;
+  background: #13C629;
+}
+
+#channelsBtn {
+  @extend .search-btn;
+
+  margin-left: 5px;
+  background: #89D403;
 }
 
 .page-nav {
   display: flex;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.page-nav div {
+  flex: 1;
+  text-align: center;
+  font-size: 28px;
+  margin: auto;
+}
+
+#prev {
+  font-size: 32px;
+}
+
+#next {
+  font-size: 32px;
 }
