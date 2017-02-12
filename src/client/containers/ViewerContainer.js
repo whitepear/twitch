@@ -25,7 +25,8 @@ var ViewerContainer = React.createClass({
 		return (
 			<div className="container">
 				<div className="viewer-nav">
-					<div className="twitch-logo">&#xf1e8;</div>
+					<div className="viewer-twitch-icon">&#xf1e8;</div>
+					<div className="viewer-twitch-logo"><span className="viewer-twitch-logo-capital">T</span>witchTV</div>
 					<div className="log-out-container">
 						<button className="log-out-btn" onClick={this.handleLogOut}>Log Out</button>
 					</div>						

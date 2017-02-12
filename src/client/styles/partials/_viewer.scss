@@ -3,10 +3,26 @@
 	line-height: 70px;
 }
 
-.twitch-logo {
+.viewer-twitch-icon {
   display: inline;
   font-family: 'Icomoon';
   font-size: 48px;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.viewer-twitch-logo {
+  position: absolute;
+  top: 9px;
+  font-family: Summer-Hearts;
+  font-size: 30px;
+  left: 22px;
+  transform: rotate(-4.5deg);
+}
+
+.viewer-twitch-logo-capital {
+  position: relative;
+  left: 2px;
+  font-size: 40px;
 }
 
 .log-out-container {
