@@ -11,6 +11,7 @@ var registerUser = require('../utils/registerUser.js');
 var getFavourites = require('../utils/getFavourites.js');
 var processStreamData = require('../utils/processStreamData.js');
 var processChannelData = require('../utils/processChannelData.js');
+var processFavouritesData = require('../utils/processFavouritesData.js');
 var updateFavourites = require('../utils/updateFavourites.js');
 
 // serve react-client
@@ -100,7 +101,6 @@ router.post('/topGames', mid.loggedIn, function(req, res, next) {
 		res.json(apiRes.data.top);
 	})
 	.catch(function(err) {
-		console.log(err);
 		res.json('An error occurred while fetching TwitchTV data. \nPlease try again later.');
 	});
 });
@@ -117,7 +117,6 @@ router.post('/streams', function(req, res, next) {
 		res.json(processStreamData(valueArr, offset));
 	})
 	.catch(function(err) {
-		console.log(err);
 		res.json('An error occurred while fetching TwitchTV data. \nPlease try again later.');
 	});
 });
@@ -158,6 +157,25 @@ router.post('/removeChannel', mid.loggedIn, function(req, res, next) {
 	})
 	.catch(function(err) {
 		res.json('An error occurred while removing channel from user\'s favourites. \nPlease try again later.');
+	});
+});
+
+// get user's favourite channels
+router.post('/favourites', mid.loggedIn, function(req, res, next) {
+	getFavourites(req.session.userId, req.pool)
+	.then(function(userFavourites) {
+		var favouriteChannelsData = userFavourites.map(function(userFavourite) {
+			return axios.get('https://api.twitch.tv/kraken/streams/' + userFavourite + '?client_id=' + process.env.TWITCH_ID);
+		});
+
+		return Promise.all(favouriteChannelsData);
+	})
+	.then(function(apiResArr) {
+		var processedArr = apiResArr.map(processFavouritesData);
+		res.json(processedArr);
+	})
+	.catch(function(err) {
+		res.json('An error occurred while retrieving your favourite channels. \nPlease try again later.');
 	});
 });
 
