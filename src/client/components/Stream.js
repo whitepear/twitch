@@ -7,12 +7,12 @@ var axios = require('axios');
 		
 var Stream = React.createClass({
 	propTypes: {
-		streamInfo: PropTypes.object.isRequired
+		streamData: PropTypes.object.isRequired
 	},
 	getInitialState: function() {
 		// prop passed to favourite is only used as initial seed data
 		return {
-			favourite: this.props.streamInfo.channel.favourite
+			favourite: this.props.streamData.channel.favourite
 		};		
 	},
 	handleFavourite: function(e) {
@@ -41,11 +41,11 @@ var Stream = React.createClass({
 	render: function() {
 		return (
 			<div className="stream-container">
-				<img src={this.props.streamInfo.channel.logo} className="stream-image" alt="Channel image"/>
+				<img src={this.props.streamData.channel.logo} className="stream-image" alt="Channel image"/>
 				<div className="stream-description">
-					<div className="stream-name">{this.props.streamInfo.channel.display_name}</div>
-					<div className="stream-favourite" id={this.props.streamInfo.channel._id} onClick={this.handleFavourite}>{this.state.favourite ? "" : ""}</div>
-					<a href={this.props.streamInfo.channel.url} className="stream-link">View Stream</a>
+					<div className="stream-name">{this.props.streamData.channel.display_name}</div>
+					<div className="stream-favourite" id={this.props.streamData.channel._id} onClick={this.handleFavourite}>{this.state.favourite ? "" : ""}</div>
+					<a href={this.props.streamData.channel.url} className="stream-link">View Stream</a>
 				</div>
 			</div>
 		);

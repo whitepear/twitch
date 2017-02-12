@@ -1,8 +1,9 @@
 // this function integrates a user's favourited channel
 // data with the stream data received from the twitch api
 
-module.exports = function(arr) {
+module.exports = function(arr, offset) {
 	var streamData = arr[0].data.streams;
+	var totalStreams = arr[0].data._total;
 	var favouritesData = arr[1];
 	
 	streamData.forEach(function(stream) {
@@ -19,5 +20,14 @@ module.exports = function(arr) {
 	 	}
 	});
 
-	return streamData;
+	if ( (offset + 10) >= totalStreams) {
+		var nextAvailableBool = false;
+	} else {
+		nextAvailableBool = true;
+	}
+	
+	return {
+		streamData: streamData,
+		nextAvailable: nextAvailableBool
+	};
 }

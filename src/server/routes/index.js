@@ -113,7 +113,7 @@ router.post('/streams', function(req, res, next) {
 	var favouritesPromise = getFavourites(req.session.userId, req.pool);
 	Promise.all([streamsPromise, favouritesPromise])
 	.then(function(valueArr) {
-		res.json(processStreamData(valueArr));
+		res.json(processStreamData(valueArr, offset));
 	})
 	.catch(function(err) {
 		console.log(err);
