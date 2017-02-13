@@ -162,8 +162,10 @@ router.post('/removeChannel', mid.loggedIn, function(req, res, next) {
 
 // get user's favourite channels
 router.post('/favourites', mid.loggedIn, function(req, res, next) {
+	// fetch channel names of user's favourite channels from the database
 	getFavourites(req.session.userId, req.pool)
 	.then(function(userFavourites) {
+		// query the twitch api for data related to the user's favourite channels
 		var favouriteChannelsData = userFavourites.map(function(userFavourite) {
 			return axios.get('https://api.twitch.tv/kraken/streams/' + userFavourite + '?client_id=' + process.env.TWITCH_ID);
 		});
@@ -171,7 +173,21 @@ router.post('/favourites', mid.loggedIn, function(req, res, next) {
 		return Promise.all(favouriteChannelsData);
 	})
 	.then(function(apiResArr) {
+		// process the api response data
 		var processedArr = apiResArr.map(processFavouritesData);
+		// sort online channels ahead of offline ones
+		processedArr.sort(function(a, b) {
+			if (a.channelProperties.stream === null && b.channelProperties.stream !== null) {
+				return 1;
+			}
+
+			if (a.channelProperties.stream !== null && b.channelProperties.stream === null) {
+				return -1;
+			}
+
+			return 0;
+		});
+		
 		res.json(processedArr);
 	})
 	.catch(function(err) {
