@@ -9,7 +9,7 @@ function Favourite(props) {
 				<div className="favourite-offline-image">Offline</div>
 				<div className="favourite-description">
 					<div className="favourite-name">{props.twitchChannel.channelName}</div>
-					<div className="favourite-remove" id={props.twitchChannel.channelName} onClick={props.onRemoveFavourite}>&#xf00d; <span>Remove</span></div>
+					<div className="favourite-remove" id={props.twitchChannel.channelName} onClick={props.onRemoveFavourite}>&#xf00d;</div>
 					<a href={"https://www.twitch.tv/" + props.twitchChannel.channelName} className="favourite-link">View Channel</a>
 				</div>
 			</div>
@@ -21,7 +21,7 @@ function Favourite(props) {
 				<img src={props.twitchChannel.channelProperties.stream.channel.logo} className="favourite-image" alt="Channel logo."/>
 				<div className="favourite-description">
 					<div className="favourite-name">{props.twitchChannel.channelProperties.stream.channel.display_name}</div>
-					<div className="favourite-remove" id={props.twitchChannel.channelName} onClick={props.onRemoveFavourite}>&#xf00d; <span>Remove</span></div>
+					<div className="favourite-remove" id={props.twitchChannel.channelName} onClick={props.onRemoveFavourite}>&#xf00d;</div>
 					<a href={props.twitchChannel.channelProperties.stream.channel.url} className="favourite-link">View Stream</a>
 				</div>
 			</div>
