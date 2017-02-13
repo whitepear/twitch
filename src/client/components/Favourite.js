@@ -6,7 +6,7 @@ function Favourite(props) {
 		// channel is offline
 		return (
 			<div className="favourite-container">
-				<img src="https://placeholdit.imgix.net/~text?txtsize=12&txt=125%C3%97125&w=125&h=125" className="favourite-image" alt="Channel logo."/>
+				<div className="favourite-offline-image">Offline</div>
 				<div className="favourite-description">
 					<div className="favourite-name">{props.twitchChannel.channelName}</div>
 					<div className="favourite-remove" id={props.twitchChannel.channelName} onClick={props.onRemoveFavourite}>&#xf00d; <span>Remove</span></div>
