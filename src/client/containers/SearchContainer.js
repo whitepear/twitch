@@ -40,7 +40,10 @@ var SearchContainer = React.createClass({
 			if (typeof res.data === 'object') {
 				// construct JSX from api response data
 				var generatedMarkup = res.data.map(function(gameInfo) {
-					return <PopularTitle key={gameInfo.game._id} gameInfo={gameInfo} onStreamSearch={this.updatePage} />;
+					return <PopularTitle 
+										key={gameInfo.game._id} 
+										gameInfo={gameInfo} 
+										onStreamSearch={this.updatePage} />;
 				}.bind(this));
 			} else {
 				var errorMessage = res.data;
