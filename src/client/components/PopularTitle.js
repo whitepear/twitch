@@ -10,7 +10,7 @@ function PopularTitle(props) {
 			<img src={props.gameInfo.game.box.medium} className="popular-title-image" alt="Title box-art"/>
 			<div className="popular-title-description">
 				<div className="popular-title-name">{props.gameInfo.game.name}</div>
-				<div className="popular-title-viewers">{props.gameInfo.viewers} <span className="eye-symbol">&#xe900;</span></div>
+				<div className="popular-title-viewers"><span className="eye-symbol">&#xe900;</span> {props.gameInfo.viewers}</div>
 				<button className="popular-title-btn" id={props.gameInfo.game.name} onClick={props.onStreamSearch}>Find Streams</button>
 			</div>
 		</div>

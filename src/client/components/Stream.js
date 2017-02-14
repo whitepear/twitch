@@ -45,6 +45,7 @@ var Stream = React.createClass({
 				<div className="stream-description">
 					<div className="stream-name">{this.props.streamData.channel.display_name}</div>
 					<div className="stream-favourite" id={this.props.streamData.channel.name} onClick={this.handleFavourite}>{this.state.favourite ? "" : ""}</div>
+					<div className="stream-viewers"><span className="eye-symbol">&#xe900;</span> {this.props.streamData.viewers}</div>
 					<a href={this.props.streamData.channel.url} className="stream-link">View Stream</a>
 				</div>
 			</div>

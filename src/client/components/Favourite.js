@@ -22,6 +22,7 @@ function Favourite(props) {
 				<div className="favourite-description">
 					<div className="favourite-name">{props.twitchChannel.channelProperties.stream.channel.display_name}</div>
 					<div className="favourite-remove" id={props.twitchChannel.channelName} onClick={props.onRemoveFavourite}>&#xf00d;</div>
+					<div className="favourite-viewers"><span className="eye-symbol">&#xe900;</span> {props.twitchChannel.channelProperties.stream.viewers}</div>
 					<a href={props.twitchChannel.channelProperties.stream.channel.url} className="favourite-link">View Stream</a>
 				</div>
 			</div>

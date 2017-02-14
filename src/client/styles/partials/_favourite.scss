@@ -37,13 +37,6 @@
 	display: inline;
 }
 
-.eye-symbol {
-	font-family: Icomoon;
-  font-size: 25px;
-  position: relative;
-  top: 4px;	
-}
-
 .favourite-remove {
   display: inline-block;
   position: relative;
@@ -63,6 +56,21 @@
   	color: #eee;
   	background: #FC3A30;
   }
+}
+
+.eye-symbol {
+  font-family: Icomoon;
+  font-size: 25px;
+  position: relative;
+  top: 4px; 
+}
+
+.favourite-viewers {
+  font-size: 20px;
+  display: inline;
+  position: relative;
+  bottom: 12px;
+  margin-left: 8px;
 }
 
 .favourite-link {

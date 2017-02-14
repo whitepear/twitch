@@ -20,18 +20,6 @@
   margin-bottom: 17px;
 }
 
-.stream-viewers {
-	font-size: 18px;
-	display: inline;
-}
-
-.eye-symbol {
-	font-family: Icomoon;
-  font-size: 25px;
-  position: relative;
-  top: 4px;	
-}
-
 .stream-favourite {
   display: inline-block;
   position: relative;
@@ -50,6 +38,21 @@
   	color: #eee;
   	background: #FC3A30;
   }
+}
+
+.eye-symbol {
+  font-family: Icomoon;
+  font-size: 25px;
+  position: relative;
+  top: 4px; 
+}
+
+.stream-viewers {
+  font-size: 20px;
+  display: inline;
+  position: relative;
+  bottom: 14px;
+  margin-left: 8px;
 }
 
 .stream-link {
