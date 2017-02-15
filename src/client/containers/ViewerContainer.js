@@ -34,7 +34,7 @@ var ViewerContainer = React.createClass({
 	},
 	render: function() {
 		return (
-			<div className="container">
+			<div className="container viewer-container">
 				<div className="viewer-nav">
 					<div className="viewer-twitch-icon">&#xf1e8;</div>
 					<div className="viewer-twitch-logo"><span className="viewer-twitch-logo-capital">T</span>witchTV</div>
