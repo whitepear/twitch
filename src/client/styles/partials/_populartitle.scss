@@ -42,5 +42,39 @@
 }
 
 @media (min-width: 768px) {
-  
+  .popular-title-container {
+    display: block;
+    flex: 1;
+    position: relative;
+    text-align: center;
+    margin-bottom: 25px;
+  }
+
+  .popular-title-image {
+    flex: none;
+  }
+
+  .popular-title-description {
+    flex: none;    
+  }
+
+  .popular-title-name {
+    display: none;
+  }
+
+  .popular-title-viewers {
+    display: none;
+  }
+
+  .popular-title-btn {
+    display: block;    
+    width: 272px;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    color: transparent;
+    background: transparent;
+  }
 }
