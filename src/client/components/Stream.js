@@ -39,13 +39,20 @@ var Stream = React.createClass({
 		});
 	},
 	render: function() {
+		// trim stream status message
+		var channelStatus = this.props.streamData.channel.status;
+		if (channelStatus.length > 82 ) {
+			channelStatus = channelStatus.slice(0, 79) + '...';
+		}
+
 		return (
 			<div className="stream-container">
 				<img src={this.props.streamData.channel.logo} className="stream-image" alt="Channel logo."/>
 				<div className="stream-description">
-					<div className="stream-name">{this.props.streamData.channel.display_name}</div>
+					<div className="stream-name">{this.props.streamData.channel.display_name} <span className="stream-viewers hidden-xs"><span className="eye-symbol">&#xe900;</span> {this.props.streamData.viewers}</span></div>
+					<div className="stream-status hidden-xs">{channelStatus}</div>
 					<div className="stream-favourite" id={this.props.streamData.channel.name} onClick={this.handleFavourite}>{this.state.favourite ? "" : ""}</div>
-					<div className="stream-viewers"><span className="eye-symbol">&#xe900;</span> {this.props.streamData.viewers}</div>
+					<div className="stream-viewers-mobile"><span className="eye-symbol">&#xe900;</span> {this.props.streamData.viewers}</div>
 					<a href={this.props.streamData.channel.url} className="stream-link">View Stream</a>
 				</div>
 			</div>
