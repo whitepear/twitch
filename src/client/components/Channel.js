@@ -44,6 +44,7 @@ var Channel = React.createClass({
 				<img src={this.props.channelData.logo} className="channel-image" alt="Channel logo."/>
 				<div className="channel-description">
 					<div className="channel-name">{this.props.channelData.display_name}</div>
+					<div className="channel-followers hidden-xs">{this.props.channelData.followers} followers</div>
 					<div className="channel-favourite" id={this.props.channelData.name} onClick={this.handleFavourite}>{this.state.favourite ? "" : ""}</div>
 					<a href={this.props.channelData.url} className="channel-link">View Channel</a>
 				</div>
