@@ -199,7 +199,9 @@ var SearchContainer = React.createClass({
 					<button id="streamsBtn" disabled={this.state.loading} onClick={this.updatePage}>Streams</button>
 					<button id="channelsBtn" disabled={this.state.loading} onClick={this.updatePage}>Channels</button>
 				</div>
-				{ this.state.loading ? <Loading /> : this.state.twitchContent }
+				<div className="search-content-container">
+					{ this.state.loading ? <Loading /> : this.state.twitchContent }
+				</div>				
 				<div className={ ( (this.state.loading || typeof this.state.twitchContent === 'string') ? "invisible " : "" ) + "page-nav" }>
 					<div id="prev" className={ (this.state.currentPage > 0) ? "" : "invisible" } onClick={this.updatePage}>&lt;&lt;</div>
 					<div className={ this.state.currentContentType !== "topGames" ? "" : "invisible" }>{ this.state.currentPage + 1 }</div>

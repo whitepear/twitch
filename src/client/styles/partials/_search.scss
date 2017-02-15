@@ -53,10 +53,42 @@
   margin: auto;
 }
 
-#prev {
+#prev, #next {
   font-size: 32px;
 }
 
-#next {
-  font-size: 32px;
+
+@media (min-width: 768px) {
+  .search-bar {
+    height: 50px;
+    margin-bottom: 64px;
+    font-size: 22px;
+  }
+
+  .search-btn-container {
+    justify-content: space-around;
+    margin-bottom: 25px;
+  }
+
+  .search-btn {
+    max-width: 280px;
+    height: 55px;
+    font-size: 24px;
+  }
+
+  #streamsBtn {
+    margin-right: 0px;
+  }
+
+  #channelsBtn {
+    margin-left: 0px;
+  }
+
+  .page-nav div {
+    font-size: 42px;
+  }
+
+  #prev, #next {
+    font-size: 38px;
+  }
 }
