@@ -158,3 +158,9 @@
     height: 45px;
   }
 }
+
+@media (min-width: 992px) {
+  .hidden-xs .eye-symbol {
+    font-size: 32px;
+  }
+}
