@@ -97,3 +97,25 @@
     font-size: 38px;
   }
 }
+
+@media (min-width: 992px) {
+  .search-bar {
+    height: 60px;
+    font-size: 26px;
+    margin-bottom: 68px;
+  }
+
+  .search-btn {
+    max-width: 300px;
+    height: 60px;
+    font-size: 28px;
+  }
+
+  .page-nav div {
+    font-size: 48px;
+  }
+
+  #prev, #next {
+    font-size: 44px;
+  }
+}

@@ -117,3 +117,31 @@
     border-bottom: 6px solid #fff;
   }
 }
+
+@media (min-width: 992px) {
+  .viewer-nav {
+    height: 100px;
+    line-height: 100px;
+  }
+
+  .viewer-twitch-icon {
+    font-size: 78px;
+    right: 22px;
+  }
+
+  .viewer-twitch-logo {
+    font-size: 44px;  
+  }
+
+  .viewer-twitch-logo-capital {
+    font-size: 56px;
+  }
+
+  .log-out-btn {
+    font-size: 28px;
+  }
+
+  .tab {
+    font-size: 34px;
+  }
+}
