@@ -76,6 +76,10 @@ var SearchContainer = React.createClass({
 				var generatedMarkup = res.data.streamData.map(function(streamData) {
 					return <Stream key={streamData._id} streamData={streamData} />;	
 				}.bind(this));
+
+				if (generatedMarkup.length === 0) {
+					generatedMarkup = 'No results were found matching your query.';
+				}
 			} else {
 				var errorMessage = res.data.streamData;
 			}			
@@ -108,6 +112,10 @@ var SearchContainer = React.createClass({
 				var generatedMarkup = res.data.channelData.map(function(channelData) {
 					return <Channel key={channelData._id} channelData={channelData} />;	
 				}.bind(this));
+
+				if (generatedMarkup.length === 0) {
+					generatedMarkup = 'No results were found matching your query.';
+				}
 			} else {
 				var errorMessage = res.data.channelData;
 			}			
