@@ -39,6 +39,10 @@
   padding: 8px;
   margin-top: 14px;
   border-radius: 3px;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 @media (min-width: 768px) {

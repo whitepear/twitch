@@ -24,6 +24,10 @@
   color: #fff;
   padding: 10px;
   border-radius: 3px;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 #streamsBtn {
@@ -31,6 +35,10 @@
 
   margin-right: 5px;
   background: #13C629;
+
+  &:hover {
+    background: #00B416;
+  }
 }
 
 #channelsBtn {
@@ -38,6 +46,10 @@
 
   margin-left: 5px;
   background: #89D403;
+
+  &:hover {
+    background: #7ABE00;
+  }
 }
 
 .search-content-container {
@@ -59,6 +71,12 @@
 
 #prev, #next {
   font-size: 32px;
+  transition: scale 0.2s ease-in;
+  
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
 }
 
 
