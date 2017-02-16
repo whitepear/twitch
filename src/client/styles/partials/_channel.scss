@@ -99,3 +99,33 @@
     height: 45px;
   }  
 }
+
+@media (min-width: 992px) {
+  .channel-image {
+    height: 200px;
+    width: 200px;
+  }
+
+  .channel-name {
+    font-size: 32px;
+  }
+
+  .channel-followers {
+    font-size: 28px;
+  }
+
+  .channel-favourite {
+    left: 214px;
+    height: 50px;
+    width: 50px;
+    line-height: 40px;
+    font-size: 34px;
+  }
+
+  .channel-link {
+    font-size: 26px;
+    text-align: center;
+    width: 178px;
+    height: 48px;
+  }
+}

@@ -8,3 +8,9 @@
   position: relative;
   top: -120px;
 }
+
+@media (min-width: 768px) {
+	.loading-text {
+		font-size: 26px;
+	}
+}
