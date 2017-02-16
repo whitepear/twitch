@@ -160,7 +160,54 @@
 }
 
 @media (min-width: 992px) {
+  .favourite-container {
+    margin-top: 75px;
+  }
+
+  .favourite-offline-image {
+    width: 200px;
+    height: 200px;
+    font-size: 28px;
+    line-height: 200px;
+  }
+
+  .favourite-image {
+    width: 200px;
+    height: 200px;
+  }
+
+  .favourite-description {
+    height: 200px;
+  }
+
+  .favourite-name {
+    font-size: 32px;
+  }
+
+  .favourite-viewers {
+    font-size: 26px;
+  }
+
   .hidden-xs .eye-symbol {
     font-size: 32px;
+  }
+
+  .favourite-status {
+    font-size: 24px;
+  }
+
+  .favourite-remove {
+    left: 210px;
+    bottom: 0;
+    height: 50px;
+    width: 50px;
+    line-height: 34px;
+    font-size: 34px;
+  }
+
+  .favourite-link {
+    font-size: 26px;
+    width: 175px;
+    height: 48px;
   }
 }
