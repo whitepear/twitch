@@ -32,11 +32,6 @@
   margin-bottom: 17px;
 }
 
-.favourite-viewers {
-	font-size: 18px;
-	display: inline;
-}
-
 .favourite-remove {
   display: inline-block;
   position: relative;
@@ -65,7 +60,7 @@
   top: 4px; 
 }
 
-.favourite-viewers {
+.favourite-viewers-mobile {
   font-size: 20px;
   display: inline;
   position: relative;
@@ -89,5 +84,77 @@
   &:hover, &:focus, &:active {
   	color: #000;
   	background: #eee;
+  }
+}
+
+@media (min-width: 768px) {
+  .favourite-container {
+    width: 100%;
+    height: 175px;
+
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  }
+
+  .favourite-offline-image {
+    width: 175px;
+    height: 175px;
+    color: #fff;
+    font-size: 26px;
+    line-height: 175px;
+  }
+
+  .favourite-image {
+    width: 175px;
+    height: 175px;
+  }
+
+  .favourite-description {
+    padding-left: 20px;
+    height: 100%;
+  }
+
+  .favourite-name {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+
+  .favourite-viewers {
+    display: inline;
+    font-size: 22px;
+    margin-left: 15px;
+  }
+
+  .hidden-xs .eye-symbol {
+    font-size: 28px;
+  }
+
+  .favourite-status {
+    font-size: 20px;
+  }
+
+  .favourite-remove {
+    position: absolute;
+    bottom: 4px;
+    left: 180px;
+    font-size: 32px;
+    height: 39px;
+    line-height: 23px;
+    padding: 7px;
+  }
+
+  .favourite-viewers-mobile {
+    display: none;
+  }
+
+  .favourite-link {
+    position: absolute;
+    bottom: 0;
+    font-size: 22px;
+    width: 149px;
+    height: 45px;
   }
 }

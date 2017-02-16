@@ -16,13 +16,21 @@ function Favourite(props) {
 		);
 	} else {
 		// channel is online
+
+		// trim stream status
+		var channelStatus = props.twitchChannel.channelProperties.stream.channel.status;
+		if (channelStatus.length > 82) {
+			channelStatus = channelStatus.slice(0, 79) + '...';
+		}
+
 		return (
 			<div className="favourite-container">
 				<img src={props.twitchChannel.channelProperties.stream.channel.logo} className="favourite-image" alt="Channel logo."/>
 				<div className="favourite-description">
-					<div className="favourite-name">{props.twitchChannel.channelProperties.stream.channel.display_name}</div>
+					<div className="favourite-name">{props.twitchChannel.channelProperties.stream.channel.display_name} <span className="favourite-viewers hidden-xs"><span className="eye-symbol">&#xe900;</span> {props.twitchChannel.channelProperties.stream.viewers}</span></div>
+					<div className="favourite-status hidden-xs">{channelStatus}</div>
 					<div className="favourite-remove" id={props.twitchChannel.channelName} onClick={props.onRemoveFavourite}>&#xf00d;</div>
-					<div className="favourite-viewers"><span className="eye-symbol">&#xe900;</span> {props.twitchChannel.channelProperties.stream.viewers}</div>
+					<div className="favourite-viewers-mobile"><span className="eye-symbol">&#xe900;</span> {props.twitchChannel.channelProperties.stream.viewers}</div>
 					<a href={props.twitchChannel.channelProperties.stream.channel.url} className="favourite-link">View Stream</a>
 				</div>
 			</div>
