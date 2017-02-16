@@ -106,7 +106,7 @@ router.post('/topGames', mid.loggedIn, function(req, res, next) {
 });
 
 // retrieve streams based on provided search input
-router.post('/streams', function(req, res, next) {
+router.post('/streams', mid.loggedIn, mid.sanitizeUserInput, function(req, res, next) {
 	var searchQuery = req.body.searchQuery;
 	var offset = req.body.page * 10;
 
@@ -122,7 +122,7 @@ router.post('/streams', function(req, res, next) {
 });
 
 // retrieve channels based on provided search input 
-router.post('/channels', function(req, res, next) {
+router.post('/channels', mid.loggedIn, mid.sanitizeUserInput, function(req, res, next) {
 	var searchQuery = req.body.searchQuery;
 	var offset = req.body.page * 10;
 
@@ -139,7 +139,7 @@ router.post('/channels', function(req, res, next) {
 });
 
 // add channel to user's favourites
-router.post('/addChannel', mid.loggedIn, function(req, res, next) {
+router.post('/addChannel', mid.loggedIn, mid.sanitizeUserInput, function(req, res, next) {
 	updateFavourites('add', req.body.channelId, req.session.userId, req.pool)
 	.then(function() {
 		res.json('Success');
@@ -150,7 +150,7 @@ router.post('/addChannel', mid.loggedIn, function(req, res, next) {
 });
 
 // remove channel from user's favourites
-router.post('/removeChannel', mid.loggedIn, function(req, res, next) {
+router.post('/removeChannel', mid.loggedIn, mid.sanitizeUserInput, function(req, res, next) {
 	updateFavourites('remove', req.body.channelId, req.session.userId, req.pool)
 	.then(function() {
 		res.json('Success');
