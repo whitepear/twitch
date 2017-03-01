@@ -24,6 +24,10 @@ var FavouritesContainer = React.createClass({
 										twitchChannel={twitchChannel} 
 										onRemoveFavourite={this.handleRemoveFavourite} />
 				}.bind(this));
+
+				if (generatedMarkup.length === 0) {
+					generatedMarkup = 'You currently do not have any favourite channels.';
+				}
 			} else {
 				var errorMessage = res.data;
 			}
